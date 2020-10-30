@@ -1,0 +1,53 @@
+from django.urls import path, include
+from .views import (
+    LessonView,
+    SingleLessonView,
+    TestView,
+    SingleTestView,
+    UserView,
+    SingleUserView,
+    LessonApprovedView,
+    SingleLessonApprovedView,
+    TestingStudentView,
+    SingleTestingStudentView,
+    QuestionView,
+    SingleQuestionView,
+    ProgrammView,
+    SingleProgrammView,
+    ThemeView,
+    SingleThemeView,
+    StudentView,
+    SingleStudentView,
+    Q1, Q2, Q3, Q4, Q5, Q6, Q7,
+)
+
+
+urlpatterns = [
+    path('lessons/', LessonView.as_view(), name='lesson'),
+    path('lessons/<int:pk>', SingleLessonView.as_view()),
+    path('tests/', TestView.as_view(), name='test'),
+    path('tests/<int:pk>', SingleTestView.as_view()),
+    path('questions/', QuestionView.as_view(), name='question'),
+    path('questions/<int:pk>', SingleQuestionView.as_view()),
+    path('programms/', ProgrammView.as_view(), name='programm'),
+    path('programms/<int:pk>', SingleProgrammView.as_view()),
+    path('themes/', ThemeView.as_view(), name='theme'),
+    path('themes/<int:pk>', SingleThemeView.as_view()),
+    path('students/', StudentView.as_view(), name='student'),
+    path('students/<int:pk>', SingleStudentView.as_view()),
+    path('users/', UserView.as_view(), name='user'),
+    path('users/<int:pk>', SingleUserView.as_view()),
+    path('lessons_approved/', LessonApprovedView.as_view(), name='lesson_approved'),
+    path('lessons_approved/<int:pk>', SingleLessonApprovedView.as_view()),
+    path('testing/', TestingStudentView.as_view(), name='testing'),
+    path('testing/<int:pk>', SingleTestingStudentView.as_view()),
+    path('q1/', Q1.as_view(), name='q1'),
+    path('q2/', Q2.as_view(), name='q2'),
+    path('q3/', Q3.as_view(), name='q3'),
+    path('q4/', Q4.as_view(), name='q4'),
+    path('q5/', Q5.as_view(), name='q5'),
+    path('q6/', Q6.as_view({'get': 'list'}), name='q6'),
+    path('q7/', Q7.as_view({'get': 'list'}), name='q7'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
+]
