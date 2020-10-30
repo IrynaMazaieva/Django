@@ -1,0 +1,5 @@
+[tool:pytest]
+addopts = --cov=car_park_app--cov-report html
+
+[run]
+omit = tests/*
